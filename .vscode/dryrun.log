@@ -1,6 +1,13 @@
-make.exe all --dry-run --always-make --keep-going --print-directory
+make.exe all --dry-run --keep-going --print-directory
 make.exe: Entering directory 'd:/Git/3dPlayground'
+ 
+Player/Makefile:26: warning: overriding recipe for target 'clean'
+3dPlayground-Core/Makefile:26: warning: ignoring old recipe for target 'clean'
+Player/Makefile:29: warning: overriding recipe for target 'print'
+3dPlayground-Core/Makefile:29: warning: ignoring old recipe for target 'print'
+
+ar rcs d:/Git/3dPlayground/lib/3dPlayground-Core/utils/3dPlayground-Core.a  d:/Git/3dPlayground/../3dPlayground-Core/lib/3dPlayground-Core/utils/3dPlayground-Core.a
+ 
+g++  -o d:/Git/3dPlayground/bin/player.exe  d:/Git/3dPlayground/../3dPlayground-Core/lib/3dPlayground-Core/utils/3dPlayground-Core.a
 make.exe: Leaving directory 'd:/Git/3dPlayground'
  
-make.exe: *** No rule to make target 'all'.
-
