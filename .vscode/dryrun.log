@@ -2,6 +2,5 @@ make.exe all --dry-run --always-make --keep-going --print-directory
 make.exe: Entering directory 'd:/Git/3dPlayground'
 make.exe: Leaving directory 'd:/Git/3dPlayground'
  
-make.exe: *** No rule to make target 'd:/Git/3dPlayground/obj/Debug/Asio/asiolist.o', needed by 'd:/Git/3dPlayground/bin/Debug/feeltime.exe'.
-make.exe: *** No rule to make target 'd:/Git/3dPlayground/obj/Debug/Asio/asiodrivers.o', needed by 'd:/Git/3dPlayground/bin/Debug/feeltime.exe'.
+make.exe: *** No rule to make target 'all'.
 
