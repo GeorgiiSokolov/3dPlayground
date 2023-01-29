@@ -1,7 +1,10 @@
-#include "3dPlayground-Core\utils\test.hpp"
+#include "3dPlayground-Core\application.hpp"
+
+using namespace Playground;
+
 
 int main()
 {
-    test();
+    Application Application;
     return 0;
 }

@@ -1,15 +1,15 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -g -MMD
+CXXFLAGS = -std=c++17 -g -MMD
 LDFLAGS =
 LBLIBS =
-HEADERDIRS := $(CURDIR)/includes/
+HEADERDIRS := $(CURDIR)/includes
 HEADERDIRS := $(patsubst %,-I%,$(HEADERDIRS))
 
-SRC_DIR := $(CURDIR)/src/3dPlayground-Core/utils
-OBJ_DIR := $(CURDIR)/obj/3dPlayground-Core/utils
+SRC_DIR := $(CURDIR)/src/3dPlayground-Core
+OBJ_DIR := $(CURDIR)/obj/3dPlayground-Core
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES)) 
-EXEC := $(CURDIR)/lib/3dPlayground-Core/utils/3dPlayground-Core.a
+EXEC := $(CURDIR)/lib/3dPlayground-Core/3dPlayground-Core.a
 DEPENDS = $(OBJ_FILES:.o=.d)
 
 all: $(EXEC)
@@ -23,7 +23,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 -include $(DEPENDS)
 
 clean:
-	del $(subst /,\,$(OBJ_FILES) $(EXEC))
+	del $(subst /,\,$(OBJ_FILES) $(EXEC) $(DEPENDS))
 
 print:
 	@echo Object files and executable
