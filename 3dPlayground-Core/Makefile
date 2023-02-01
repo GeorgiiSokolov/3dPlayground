@@ -1,6 +1,6 @@
-CXX = g++
+CXX = gcc
 CXXFLAGS = -std=c++17 -g -MMD
-LDFLAGS =
+LDFLAGS = -lgdi32
 LBLIBS =
 HEADERDIRS := $(CURDIR)/includes
 HEADERDIRS := $(patsubst %,-I%,$(HEADERDIRS))
@@ -15,7 +15,7 @@ DEPENDS = $(OBJ_FILES:.o=.d)
 all: $(EXEC)
 
 $(EXEC): $(OBJ_FILES)
-	ar rcs $@ $^ $(LBLIBS)
+	gcc-ar $(LDFLAGS) rcs $@ $^ $(LBLIBS) 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) $(HEADERDIRS) -c -o $@ $<
@@ -23,7 +23,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 -include $(DEPENDS)
 
 clean:
-	del $(subst /,\,$(OBJ_FILES) $(EXEC) $(DEPENDS))
+	rm $(OBJ_FILES) $(EXEC) $(DEPENDS)
 
 print:
 	@echo Object files and executable
