@@ -1,0 +1,4 @@
+
+Improvements
+1. Linking not clear. Static library and -lgdi32
+2. CWindow class and unique pointers

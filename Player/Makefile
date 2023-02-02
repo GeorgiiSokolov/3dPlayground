@@ -1,8 +1,10 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -g -MMD
 LDFLAGS = -static
-LBLIBS := $(CURDIR)/../3dPlayground-Core/lib/3dPlayground-Core/3dPlayground-Core.a
-HEADERDIRS := $(CURDIR)/includes $(CURDIR)/../3dPlayground-Core/includes
+LBLIBS := $(CURDIR)/../3dPlayground-Core/lib/3dPlayground-Core/3dPlayground-Core.a \
+			$(CURDIR)/../Extern/glad/lib/glad.a
+HEADERDIRS := $(CURDIR)/includes $(CURDIR)/../3dPlayground-Core/includes \
+			$(CURDIR)/../Extern/glad/include
 HEADERDIRS := $(patsubst %,-I%,$(HEADERDIRS))
 
 SRC_DIR := $(CURDIR)/src
@@ -15,7 +17,7 @@ DEPENDS = $(OBJ_FILES:.o=.d)
 all: $(EXEC)
 
 $(EXEC): $(OBJ_FILES)
-	$(CXX) $(LDFLAGS) -o $@ $^ $(LBLIBS) -lgdi32
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LBLIBS) -lgdi32 -lglu32 -lopengl32
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) $(HEADERDIRS) -c -o $@ $<

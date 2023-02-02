@@ -1,7 +1,9 @@
 #include <windows.h>
+#include "glad\glad.h"
 #include <iostream>
 #include <string>
 #include "3dPlayground-Core\application.hpp"
+#include "3dPlayground-Core\enable-disableOpenGL.hpp"
 
 namespace Playground
 {
@@ -62,7 +64,22 @@ namespace Playground
 
         ShowWindow(hwnd, nCmdShow);
 
-            while (!bQuit)
+            // Renderer: Intel(R) HD Graphics
+            // Vendor: Intel
+            // Version: 2.1.0 - Build 8.15.10.2900
+            // Shading language version: 1.20  - Intel Build 8.15.10.2900
+        
+        EnableOpenGL(hwnd, &hDC, &hRC);
+
+        if (!gladLoadGL())
+        {
+            std::cout << "Failed to load GL! " << std::endl;
+            return -1;
+        }
+
+        std::cout << "GL ver: " << GLVersion.major << " " << GLVersion.minor << std::endl;
+
+        	while (!bQuit)
             {
                 /* check for messages */
                 //PeekMessage returns immediately.
@@ -91,7 +108,7 @@ namespace Playground
             }
 
         /* shutdown OpenGL */
-        //DisableOpenGL(hwnd, hDC, hRC);
+        DisableOpenGL(hwnd, hDC, hRC);
 
         /* destroy the window explicitly */
         DestroyWindow(hwnd);
