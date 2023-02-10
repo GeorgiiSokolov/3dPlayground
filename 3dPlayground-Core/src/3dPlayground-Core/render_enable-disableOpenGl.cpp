@@ -1,13 +1,17 @@
 #include <windows.h>
+#include "glad\glad.h"
+#include "3dPlayground-Core\render.hpp"
 
-void EnableOpenGL(HWND hwnd, HDC* hDC, HGLRC* hRC)
+using namespace Playground;
+
+void Render::EnableOpenGl()
 {
     PIXELFORMATDESCRIPTOR pfd;
 
     int iFormat;
 
     /* get the device context (DC) */
-    *hDC = GetDC(hwnd);
+    hDC = GetDC(hwnd);
 
     /* set the pixel format for the DC */
     ZeroMemory(&pfd, sizeof(pfd));
@@ -21,17 +25,17 @@ void EnableOpenGL(HWND hwnd, HDC* hDC, HGLRC* hRC)
     pfd.cDepthBits = 16;
     pfd.iLayerType = PFD_MAIN_PLANE;
 
-    iFormat = ChoosePixelFormat(*hDC, &pfd);
+    iFormat = ChoosePixelFormat(hDC, &pfd);
 
-    SetPixelFormat(*hDC, iFormat, &pfd);
+    SetPixelFormat(hDC, iFormat, &pfd);
 
     /* create and enable the render context (RC) */
-    *hRC = wglCreateContext(*hDC);
+    hRC = wglCreateContext(hDC);
 
-    wglMakeCurrent(*hDC, *hRC);
+    wglMakeCurrent(hDC, hRC);
 }
 
-void DisableOpenGL (HWND hwnd, HDC hDC, HGLRC hRC)
+void Render::DisableOpenGl()
 {
     wglMakeCurrent(NULL, NULL);
     wglDeleteContext(hRC);

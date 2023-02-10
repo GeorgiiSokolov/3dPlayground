@@ -3,8 +3,8 @@
 
 using namespace Player;
 
-int PlayerApp::OnRedraw()
+int PlayerApp::OnUpdate()
 {
-    //std::cout << "OnRedraw invoked." << std::endl;
+    //std::cout << "OnUpdate invoked." << std::endl;
     return 0;
 }

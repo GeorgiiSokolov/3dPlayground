@@ -1,5 +1,5 @@
 CXX = gcc
-CXXFLAGS = -std=c++17 -g -MMD
+CXXFLAGS = -std=c++17 -g -MMD -Wall
 LDFLAGS =
 LBLIBS =
 HEADERDIRS := $(CURDIR)/includes $(CURDIR)/../Extern/glad/include
@@ -15,7 +15,7 @@ DEPENDS = $(OBJ_FILES:.o=.d)
 all: $(EXEC)
 
 $(EXEC): $(OBJ_FILES)
-	gcc-ar $(LDFLAGS) rcs $@ $^ $(LBLIBS) 
+	ar $(LDFLAGS) rcs $@ $^ $(LBLIBS) 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) $(HEADERDIRS) -c -o $@ $<

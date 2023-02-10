@@ -1,5 +1,5 @@
 CXX = gcc
-CXXFLAGS = -g -MMD
+CXXFLAGS = -g -MMD -Wall
 LDFLAGS =
 LBLIBS =
 HEADERDIRS := $(CURDIR)/include
@@ -15,7 +15,7 @@ DEPENDS = $(OBJ_FILES:.o=.d)
 all: $(EXEC)
 
 $(EXEC): $(OBJ_FILES)
-	gcc-ar $(LDFLAGS) rcs $@ $^ $(LBLIBS) 
+	ar $(LDFLAGS) rcs $@ $^ $(LBLIBS) 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CXX) $(CXXFLAGS) $(HEADERDIRS) -c -o $@ $<

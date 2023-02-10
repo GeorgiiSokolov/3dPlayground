@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -g -MMD
+CXXFLAGS = -std=c++17 -g -MMD -Wall
 LDFLAGS = -static
 LBLIBS := $(CURDIR)/../3dPlayground-Core/lib/3dPlayground-Core/3dPlayground-Core.a \
 			$(CURDIR)/../Extern/glad/lib/glad.a

@@ -6,6 +6,6 @@ namespace Player
 {
     class PlayerApp : public Playground::Application
     {
-        virtual int OnRedraw() override;
+        virtual int OnUpdate() override;
     };
 }
