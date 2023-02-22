@@ -1,13 +1,17 @@
 #include <windows.h>
-#include "glad\glad.h"
 #include <iostream>
 #include <string>
 #include "3dPlayground-Core\application.hpp"
+#include "3dPlayground-Core\render.hpp"
 #include "3dPlayground-Core\window.hpp"
+
 
 namespace Playground
 {
-    Application::Application()
+    Application::Application(HINSTANCE hInstance, int nCmdShow,
+                            unsigned int width, unsigned int height,
+                            std::string name)
+    : wnd(Window(hInstance, nCmdShow, width, height, name))
     {
 
     }
@@ -17,15 +21,13 @@ namespace Playground
 
     }
 
-    int Application::Start(HINSTANCE hInstance, int nCmdShow,
-                            unsigned int width, unsigned int height,
-                            std::string name)
+    int Application::Start()
     {
-        Window wnd = Window(hInstance, nCmdShow, width, height, name);
         while(!wnd.get_bQuit())
         {
             wnd.OnUpdate();
             OnUpdate();
+            wnd.rnd.Swap();
         }
         return 0;
     }

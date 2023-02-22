@@ -10,7 +10,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
                    LPSTR lpCmdLine,
                    int nCmdShow)
 {
-    PlayerApp app;
-    app.Start(hInstance, nCmdShow, 320, 240, std::string("Player"));
+    PlayerApp app(hInstance, nCmdShow, 800, 600, std::string("Player"));
+    app.Start();
     return 0;
 }

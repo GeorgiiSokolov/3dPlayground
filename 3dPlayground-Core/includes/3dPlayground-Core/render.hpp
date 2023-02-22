@@ -11,14 +11,21 @@ namespace Playground
             Render();
             ~Render();
             int Init(HWND hwnd);
-            HDC get_hDC() { return hDC; }
+            int Swap();
+
+            GLuint points_vbo;
+            GLuint color_vbo;
+            GLuint shader_program, vao;
+            GLint mvp_Id;
+
+            
 
         private:
             void EnableOpenGl();
             void DisableOpenGl();
 
-            HWND hwnd;
             HDC hDC;
+            HWND hwnd;
             HGLRC hRC;
     };
 }

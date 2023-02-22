@@ -6,6 +6,12 @@ namespace Player
 {
     class PlayerApp : public Playground::Application
     {
-        virtual int OnUpdate() override;
+        public:
+            PlayerApp(HINSTANCE hInstance, int nCmdShow,
+                            unsigned int width, unsigned int height,
+                            std::string name) 
+                : Application(hInstance, nCmdShow, width, height, name) {}
+        private:    
+            virtual int OnUpdate() override;
     };
 }

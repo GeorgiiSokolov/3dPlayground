@@ -18,7 +18,10 @@ namespace Playground
             unsigned int get_height() { return height; }
             unsigned int get_width() { return width; }
             int get_bQuit() { return bQuit; }
+            HWND get_hwnd() { return hwnd; }
         
+            Render rnd;
+
         private:
 
             int Init();
@@ -33,6 +36,6 @@ namespace Playground
             HWND hwnd;
             MSG msg;
             int bQuit;
-            Render rnd;
+            
     };
 }

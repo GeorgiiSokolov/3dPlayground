@@ -10,9 +10,9 @@ clean:
 	$(MAKE) clean -C ./Player
 
 re:
-	-$(MAKE) clean -C ./3dPlayground-Core
+#	-$(MAKE) clean -C ./3dPlayground-Core
 	-$(MAKE) clean -C ./Player
-	$(MAKE) -C ./3dPlayground-Core
+#	$(MAKE) -C ./3dPlayground-Core
 	$(MAKE) -C ./Player
 	Player\bin\player.exe
 	

@@ -4,7 +4,8 @@ LDFLAGS = -static
 LBLIBS := $(CURDIR)/../3dPlayground-Core/lib/3dPlayground-Core/3dPlayground-Core.a \
 			$(CURDIR)/../Extern/glad/lib/glad.a
 HEADERDIRS := $(CURDIR)/includes $(CURDIR)/../3dPlayground-Core/includes \
-			$(CURDIR)/../Extern/glad/include
+			$(CURDIR)/../Extern/glad/include \
+			$(CURDIR)/../Extern/glm
 HEADERDIRS := $(patsubst %,-I%,$(HEADERDIRS))
 
 SRC_DIR := $(CURDIR)/src

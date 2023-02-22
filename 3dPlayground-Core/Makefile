@@ -2,7 +2,9 @@ CXX = gcc
 CXXFLAGS = -std=c++17 -g -MMD -Wall
 LDFLAGS =
 LBLIBS =
-HEADERDIRS := $(CURDIR)/includes $(CURDIR)/../Extern/glad/include
+HEADERDIRS := $(CURDIR)/includes \
+	$(CURDIR)/../Extern/glad/include \
+	$(CURDIR)/../Extern/glm
 HEADERDIRS := $(patsubst %,-I%,$(HEADERDIRS))
 
 SRC_DIR := $(CURDIR)/src/3dPlayground-Core
