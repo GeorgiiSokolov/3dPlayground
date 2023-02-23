@@ -118,6 +118,12 @@ int Render::Init(HWND a_hwnd)
         glVertexPointer(3, GL_FLOAT, 0, nullptr);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+    indexes_ebo = 0;
+    glGenBuffers(1, &indexes_ebo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes_ebo);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubeIndexes), cubeIndexes, GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
     color_vbo = 0;
     glGenBuffers(1, &color_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, color_vbo);

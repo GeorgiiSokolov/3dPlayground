@@ -14,6 +14,7 @@ namespace Playground
             int Swap();
 
             GLuint points_vbo;
+            GLuint indexes_ebo;
             GLuint color_vbo;
             GLuint shader_program, vao;
             GLint mvp_Id;

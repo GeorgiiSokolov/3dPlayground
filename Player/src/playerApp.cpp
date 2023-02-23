@@ -5,16 +5,6 @@
 #include "glm\gtx\transform.hpp"
 #include "glm\gtc\type_ptr.hpp"
 
-GLuint cubeIndexes[] =
-{
-	0, 1, 2, 3,
-	4, 5, 6, 7,
-	0, 1, 5, 4,
-	2, 3, 7, 6,
-	1, 2, 6, 5,
-	0, 3, 7, 4
-};
-
 using namespace Player;
 
 int PlayerApp::OnUpdate()
@@ -40,8 +30,12 @@ int PlayerApp::OnUpdate()
     
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
-		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_INT, &cubeIndexes);
-	glDisableClientState(GL_VERTEX_ARRAY);
+    
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, wnd.rnd.indexes_ebo);
+		    glDrawElements(GL_QUADS, 24, GL_UNSIGNED_INT, nullptr);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_COLOR_ARRAY);
     return 0;
 }
